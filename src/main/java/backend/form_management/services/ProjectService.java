@@ -49,8 +49,8 @@ public class ProjectService {
         Optional<Project> optionalProject = projectRepository.findById(projectId);
         if (optionalProject.isPresent()) {
             Project project = optionalProject.get();
-project.getForms().removeIf(form -> form.getId().equals(formId));
-            project.getForms().add(updatedForm);
+            project.getForms().removeIf(form -> form.getId().equals(formId));    //delete old form
+            project.getForms().add(updatedForm);        //add new form
             projectRepository.save(project);
         }
     }

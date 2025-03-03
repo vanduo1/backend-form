@@ -42,7 +42,7 @@ public class FormController {
     }
 
     @PutMapping("/{projectId}/forms/{formId}/update")
-    public ResponseEntity<Form> getFormDetails(@PathVariable("projectId") String projectId, @PathVariable("formId") String formId, @RequestBody Form form) {
+    public ResponseEntity<Form> updateForm(@PathVariable("projectId") String projectId, @PathVariable("formId") String formId, @RequestBody Form form) {
         try {
             Form updatedForm   = formService.updateForm(formId, form);
             projectService.updateFormToProject(projectId, formId,updatedForm);
@@ -51,6 +51,9 @@ public class FormController {
             return ResponseEntity.notFound().build();
         }
     }
+
+    
+
 
 
 }
